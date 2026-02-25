@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="supported-color-schemes" content="light dark">
+	<meta name="theme-color" content="#0a0908">
+	<title>pizzacloud.cc</title>
+	<link rel="icon" sizes="72x72" href="favicon.png">
+
+	<style>
+		html {
+			background: url(pero-kalimero-9BJRGlqoIUk-unsplash.jpg) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+}
+		body { background-color: #82C8E5; }
+		.container {
+			position: absolute;
+			margin: auto;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 500px;
+			height: 500px;
+		}
+		.container img { width: 500px;}
+
+		@keyframes spin {
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		.tide-pod {
+			display: block;
+			margin: 50px auto 0;
+			width: 500px;
+		}
+		.tide-pod:hover {
+			animation: spin 2500ms linear infinite;
+		}
+	</style>
+</head>
+<body>
+<!-- Background image by Pero Kalimero, https://unsplash.com/photos/nimbus-clouds-and-blue-calm-sky-9BJRGlqoIUk -->
+<!-- Spinning pizza CSS from https://codepen.io/anon/pen/NYWxvw -->
+
+	<div class="container">
+		<img src="./pizzacloud.png" class="tide-pod">
+	</div>
+</body>
+</html>
