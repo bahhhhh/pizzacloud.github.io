@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#8fbad4">
 	<title>pizzacloud.cc</title>
 	<style>
 		* {
@@ -10,7 +11,12 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
-		html, body {
+		html {
+			height: 100%;
+			/* Gradient matches image: sky blue at top, warm cloud white at bottom */
+			background: linear-gradient(to bottom, #8fbad4, #e8e0d4);
+		}
+		body {
 			height: 100%;
 			overflow: hidden;
 		}
