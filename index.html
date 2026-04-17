@@ -2,54 +2,63 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-	<meta name="supported-color-schemes" content="light dark">
-	<meta name="theme-color" content="#0a0908">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>pizzacloud.cc</title>
-	<link rel="icon" sizes="72x72" href="favicon.png">
-
 	<style>
-		html {
-			background: url(pero-kalimero-9BJRGlqoIUk-unsplash.jpg) no-repeat center center fixed;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html, body {
+			height: 100%;
+			overflow: hidden;
+		}
+		body {
+			/* background-attachment: fixed is broken on iOS Safari, scroll works everywhere */
+			background: url(pero-kalimero-9BJRGlqoIUk-unsplash.jpg) no-repeat center center scroll;
 			background-size: cover;
-}
-		body { background-color: #82C8E5; }
-		.container {
-			position: absolute;
-			margin: auto;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			width: 500px;
-			height: 500px;
 		}
-		.container img { width: 500px;}
 
-		@keyframes spin {
-			100% {
-				transform: rotate(360deg);
-			}
+		.pizza {
+			position: absolute;
+			/* Prevent any single image from being wider than the viewport */
+			max-width: 90vw;
 		}
-		.tide-pod {
-			display: block;
-			margin: 50px auto 0;
-			width: 500px;
+
+		/* Right-to-left drift */
+		@keyframes drift {
+			from { transform: translateX(calc(100vw + 450px)); }
+			to   { transform: translateX(-450px); }
 		}
-		.tide-pod:hover {
-			animation: spin 2500ms linear infinite;
+
+		/*
+		 * Widths use clamp(min, preferred-vw, max-px) so they scale with
+		 * the viewport — large on desktop, appropriately smaller on mobile.
+		 */
+		.p1  { top:  4%;  width: clamp(60px,  18vw, 200px); animation: drift 28s linear infinite; }
+		.p2  { top: 12%;  width: clamp(80px,  35vw, 380px); animation: drift 38s linear infinite; animation-delay: -10s; }
+		.p3  { top: 20%;  width: clamp(40px,  11vw, 120px); animation: drift 22s linear infinite; animation-delay: -5s; }
+		.p4  { top: 30%;  width: clamp(70px,  28vw, 300px); animation: drift 34s linear infinite; animation-delay: -20s; }
+		.p5  { top: 55%;  width: clamp(65px,  26vw, 280px); animation: drift 26s linear infinite; animation-delay: -14s; }
+		.p6  { top: 65%;  width: clamp(40px,  12vw, 130px); animation: drift 42s linear infinite; animation-delay: -3s; }
+		.p7  { top: 75%;  width: clamp(80px,  35vw, 380px); animation: drift 30s linear infinite; animation-delay: -25s; }
+		.p8  { top: 85%;  width: clamp(60px,  18vw, 200px); animation: drift 36s linear infinite; animation-delay: -8s; }
+
+		/* Honour reduced-motion preference */
+		@media (prefers-reduced-motion: reduce) {
+			.pizza { animation: none; }
 		}
 	</style>
 </head>
 <body>
-<!-- Background image by Pero Kalimero, https://unsplash.com/photos/nimbus-clouds-and-blue-calm-sky-9BJRGlqoIUk -->
-<!-- Spinning pizza CSS from https://codepen.io/anon/pen/NYWxvw -->
-
-	<div class="container">
-		<img src="./pizzacloud.png" class="tide-pod">
-	</div>
+	<img class="pizza p1" src="./pizzacloud.png" alt="">
+	<img class="pizza p2" src="./pizzacloud.png" alt="">
+	<img class="pizza p3" src="./pizzacloud.png" alt="">
+	<img class="pizza p4" src="./pizzacloud.png" alt="">
+	<img class="pizza p5" src="./pizzacloud.png" alt="">
+	<img class="pizza p6" src="./pizzacloud.png" alt="">
+	<img class="pizza p7" src="./pizzacloud.png" alt="">
+	<img class="pizza p8" src="./pizzacloud.png" alt="">
 </body>
 </html>
